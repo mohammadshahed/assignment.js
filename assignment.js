@@ -43,16 +43,31 @@ function tinyFriend(names){
 
 
     //Brick Calculator
-    function brickCalculator(feet){
-        var feet[0] = 1;
-        if(i = 1; i < 11; i++){
-            var brick = feet[i] * 1000;
+    // 1 feet = 1000 briks (from 1-10 floor) goes to 14 feet
+    // 1 feet = 1000 briks (from 10-15 floor) it goes through 12 feet
+    // 1 feet = 1000 briks (from 15-20 floor) it goes through 10 feet
+
+    function brickCalculator(floor){
+        var bricks = 0;
+        if(floor <= 10){
+            var bricks = floor * 14 * 1000;
         }
-        else if {
-            
+        else if(floor <= 15 ){
+            var firstPartBricks = 10 * 14 * 1000;
+            var remainingFeetBricks = floor - 10;
+            var secondPartbricks = remainingFeetBricks * 12 * 1000;
+            var bricks = firstPartBricks + secondPartbricks;
         }
-        return brick;
+        else{
+            var firstPartBricks = 10 * 14 * 1000;
+            var secondPartbricks = 15 * 12 * 1000;
+            var remainingFeetBricks = floor - 15;
+            var thirdPartBricks = remainingFeetBricks * 10 * 1000;
+            var bricks = firstPartBricks + secondPartbricks + remainingFeetBricks;
+        }
+
+        return bricks;
     }
 
-    var result = brickCalculator(15);
+    var result = brickCalculator(2);
     console.log(result);
