@@ -14,7 +14,7 @@ function animalDeptCalculator(dept){
         var firstPartAnimals = 10*50;
         var remainingPartAnimals = dept - 10;
         var secondPartanimals = remainingPartAnimals*100;
-        var animals =firstPartAnimals + remainingPartAnimals;
+        var animals =firstPartAnimals + secondPartanimals;
     }
     else{
         var firstPartAnimals = 10*50;
@@ -27,5 +27,5 @@ function animalDeptCalculator(dept){
     return animals;
 }
 
-var totalAnimalsCount = animalDeptCalculator(22);
+var totalAnimalsCount = animalDeptCalculator(12);
 console.log(totalAnimalsCount)
